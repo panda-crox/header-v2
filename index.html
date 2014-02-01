@@ -36,7 +36,7 @@
 						<nav class="b-menu" ng-if="!menu.items[0].hidden">
 							<a href="#" class="b-menu__item" ng-repeat="item in menu.items" ng-if="!item.hidden">{{item.caption}}</a>
 							<div class="b-menu__item b-popup-wrapper {{menu.popupShow ? 'active' : ''}}" ng-if="menu.items[menu.items.length - 1].hidden">
-								<span class="b-popup-toggle" ng-click="menu.popupShow = !menu.popupShow"><i class="icon flaticon-dots"></i></span>
+								<span class="b-popup-toggle" ng-click="usermenu.popupShow = false; menu.popupShow = !menu.popupShow"><i class="icon flaticon-dots"></i></span>
 								<div class="b-popup">
 									<a href="#" class="b-popup__item" ng-repeat="item in menu.items" ng-if="item.hidden">{{item.caption}}</a>
 								</div>
@@ -45,7 +45,7 @@
 						<div class="b-user-box" ng-if="!menu.items[0].hidden">
 							<nav class="b-user-menu">
 								<div class="b-user-menu__item b-popup-wrapper {{usermenu.popupShow ? 'active' : ''}}">
-									<span class="b-popup-toggle" ng-click="usermenu.popupShow = !usermenu.popupShow"><img src="images/avatar.png" alt=""></span>
+									<span class="b-popup-toggle" ng-click="menu.popupShow = false; usermenu.popupShow = !usermenu.popupShow"><img src="images/avatar.png" alt=""></span>
 									<div class="b-popup">
 										<a href="#" class="name">{{user.name}}</a>
 										<span class="points">{{user.points}} очков</span>
