@@ -1,0 +1,64 @@
+@mixin border-radius($params) {
+  -webkit-border-radius: $params;
+     -moz-border-radius: $params;
+      -ms-border-radius: $params;
+       -o-border-radius: $params;
+          border-radius: $params;
+}
+
+
+@mixin transition($params) {
+  -webkit-transition: $params;
+     -moz-transition: $params;
+      -ms-transition: $params;
+       -o-transition: $params;
+          transition: $params;
+}
+
+@mixin box-shadow($params) {
+  -webkit-box-shadow: $params;
+     -moz-box-shadow: $params;
+      -ms-box-shadow: $params;
+       -o-box-shadow: $params;
+          box-shadow: $params;
+}
+
+@mixin box-sizing($params) {
+  -webkit-box-sizing: $params;
+     -moz-box-sizing: $params;
+      -ms-box-sizing: $params;
+       -o-box-sizing: $params;
+          box-sizing: $params;
+}
+
+
+@mixin transform($params) {
+  -webkit-transform: $params;
+     -moz-transform: $params;
+      -ms-transform: $params;
+       -o-transform: $params;
+          transform: $params;
+}
+
+
+@mixin column($count, $width) {
+  -webkit-column-count: $count;
+     -moz-column-count: $count;
+      -ms-column-count: $count;
+       -o-column-count: $count;
+          column-count: $count;
+  -webkit-column-width: $width;
+     -moz-column-width: $width;
+      -ms-column-width: $width;
+       -o-column-width: $width;
+          column-width: $width;
+}
+
+
+@mixin font-smoothing($params) {
+  -webkit-font-smoothing: $params;
+     -moz-font-smoothing: $params;
+      -ms-font-smoothing: $params;
+       -o-font-smoothing: $params;
+          font-smoothing: $params;
+}

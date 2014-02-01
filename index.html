@@ -1,0 +1,77 @@
+<!doctype html>
+<html ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<title>who trades</title>
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+	<script src="js/scripts.js" type="text/javascript"></script>
+</head>
+
+<body class="{{menu.items[0].hidden ? 'smartphone' : ''}}" ng-Controller="Root">
+	<div class="b-wrapper">
+		<div class="b-columns" style="{{menu.items[0].hidden ? 'width:' + clientWidth * 3 + 'px; margin-left: -' + clientWidth + 'px; left: ' + (layoutLeft ? layoutLeft : 45) + 'px;' : ''}}">
+			<div class="b-column b-column-left" style="height:{{clientHeight}}px; width:{{clientWidth - 45}}px;" ng-if="menu.items[0].hidden">
+				<div class="b-top">
+					<form class="b-search">
+						<div class="b-search__item">
+							<i class="icon flaticon-search"></i>
+							<input type="text" placeholder="Поиск">
+						</div>
+					</form>
+				</div>
+				<nav class="b-menu">
+					<a href="#" class="b-menu__item" ng-repeat="item in menu.items">{{item.caption}}</a>
+				</nav>
+			</div>
+			<div class="b-column b-column-center" style="width:{{clientWidth}}px;">
+				<header class="b-header">
+					<div class="b-header__layout">
+						<span class="b-menu-toggle" ng-click="moveLayout(clientWidth)" ng-if="menu.items[0].hidden"><i class="icon flaticon-menu"></i></span>
+						<span class="b-user-menu-toggle" ng-click="moveLayout(90-clientWidth)" ng-if="menu.items[0].hidden"><span class="count">{{user.messages}}</span><i class="icon flaticon-user"></i></span>
+						<div class="b-logo">
+							<a href="/"><img src="images/logo.png" alt=""></a>
+						</div>
+						<nav class="b-menu" ng-if="!menu.items[0].hidden">
+							<a href="#" class="b-menu__item" ng-repeat="item in menu.items" ng-if="!item.hidden">{{item.caption}}</a>
+							<div class="b-menu__item b-popup-wrapper {{menu.popupShow ? 'active' : ''}}" ng-if="menu.items[menu.items.length - 1].hidden">
+								<span class="b-popup-toggle" ng-click="menu.popupShow = !menu.popupShow"><i class="icon flaticon-dots"></i></span>
+								<div class="b-popup">
+									<a href="#" class="b-popup__item" ng-repeat="item in menu.items" ng-if="item.hidden">{{item.caption}}</a>
+								</div>
+							</div>
+						</nav>
+						<div class="b-user-box" ng-if="!menu.items[0].hidden">
+							<nav class="b-user-menu">
+								<div class="b-user-menu__item b-popup-wrapper {{usermenu.popupShow ? 'active' : ''}}">
+									<span class="b-popup-toggle" ng-click="usermenu.popupShow = !usermenu.popupShow"><img src="images/avatar.png" alt=""></span>
+									<div class="b-popup">
+										<a href="#" class="name">{{user.name}}</a>
+										<span class="points">{{user.points}} очков</span>
+										<ul class="b-user-submenu">
+											<li ng-repeat="item in usermenu.items" ng-if="!item.icon"><a href="#">{{item.caption}}</a></li>
+										</ul>
+									</div>
+								</div>
+								<a href="#" class="b-user-menu__item"><i class="icon flaticon-{{usermenu.items[0].icon}}"></i></a>
+								<a href="#" class="b-user-menu__item"><i class="icon flaticon-search"></i></a>
+							</nav>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</header>
+			</div>
+			<div class="b-column b-column-right" style="height:{{clientHeight}}px; width:{{clientWidth - 45}}px;" ng-if="menu.items[0].hidden">
+				<div class="b-top">
+					<a href="#" class="name">{{user.name}}</a>
+					<span class="points">{{user.points}}</span>
+				</div>
+				<nav class="b-menu">
+					<a href="#" class="b-menu__item {{item.spec ? 'spec' : ''}}" ng-repeat="item in usermenu.items">{{item.caption}}<span class="count" ng-if="!$index">{{user.messages}}</span><i class="icon flaticon-{{item.icon}}" ng-if="item.spec"></i></a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
